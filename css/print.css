@@ -1,0 +1,30 @@
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .app-header,
+  .sidebar,
+  .flashcard-controls,
+  .flashcard-navigation,
+  .header-actions,
+  .note-grid,
+  #exportPanel {
+    display: none !important;
+  }
+
+  .app-layout {
+    padding: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+
+  .question-container {
+    page-break-inside: avoid;
+  }
+}

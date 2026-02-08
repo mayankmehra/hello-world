@@ -1,0 +1,70 @@
+.flashcard-stage {
+  min-height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flashcard {
+  width: 100%;
+  max-width: 420px;
+  height: 240px;
+  perspective: 1000px;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flip .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #f8fafc;
+}
+
+.flashcard-face h4 {
+  margin: 0;
+}
+
+.flashcard-face p {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+}
+
+.flashcard-front {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(16, 185, 129, 0.12));
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+  background: #fff;
+}
+
+.flashcard-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.counter {
+  font-weight: 600;
+  color: var(--muted);
+}

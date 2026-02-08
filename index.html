@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grade 7 CBSE Math Study Companion</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/flashcards.css" />
+    <link rel="stylesheet" href="css/print.css" media="print" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Grade 7 CBSE Mathematics Teaching App</p>
+          <h1>Study Companion Studio</h1>
+          <p class="subtitle">Generate practice sets and flashcards in minutes.</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn-secondary" id="exportButton" type="button">Export</button>
+          <button class="btn-secondary" id="printButton" type="button">Print</button>
+          <button class="btn-primary" id="demoDataButton" type="button">Load Sample Data</button>
+        </div>
+      </header>
+
+      <div class="app-layout">
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <h2>Topics</h2>
+            <p>CBSE Grade 7 syllabus chapters</p>
+          </div>
+          <nav class="topic-tree" id="topicTree" aria-label="Topic Navigation"></nav>
+        </aside>
+
+        <main class="main-content">
+          <section class="card" aria-live="polite">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Selected Topic</p>
+                <h2 id="selectedTopic">Integers</h2>
+              </div>
+              <div class="badge" id="selectedSubtopic">Operations on Integers</div>
+            </div>
+            <div class="control-grid">
+              <div>
+                <label for="difficulty">Difficulty</label>
+                <div class="pill-group" id="difficultyGroup">
+                  <label class="pill">
+                    <input type="radio" name="difficulty" value="easy" checked />
+                    Easy
+                  </label>
+                  <label class="pill">
+                    <input type="radio" name="difficulty" value="medium" />
+                    Medium
+                  </label>
+                  <label class="pill">
+                    <input type="radio" name="difficulty" value="hard" />
+                    Hard
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label for="questionCount">Number of Questions</label>
+                <select id="questionCount">
+                  <option value="3">3</option>
+                  <option value="5" selected>5</option>
+                  <option value="8">8</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+              <div>
+                <label for="questionType">Question Type</label>
+                <select id="questionType">
+                  <option value="mixed" selected>Mixed</option>
+                  <option value="mcq">MCQ</option>
+                  <option value="short">Short Answer</option>
+                  <option value="long">Long Answer</option>
+                </select>
+              </div>
+              <div class="control-actions">
+                <button class="btn-primary" id="generateQuestions" type="button">
+                  Generate Questions
+                </button>
+                <button class="btn-outline" id="generateFlashcards" type="button">
+                  Generate Flashcards
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="content-grid">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <p class="eyebrow">Question Generator</p>
+                  <h3>Generated Questions</h3>
+                </div>
+                <div class="status" id="questionStatus">Ready</div>
+              </div>
+              <div id="questionList" class="question-list"></div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <p class="eyebrow">Flashcards</p>
+                  <h3>Concept Review</h3>
+                </div>
+                <div class="status" id="flashcardStatus">Ready</div>
+              </div>
+              <div class="flashcard-controls">
+                <label class="checkbox">
+                  <input type="checkbox" id="visualAidToggle" checked />
+                  Include visual aids
+                </label>
+                <label for="flashcardCount">Cards</label>
+                <select id="flashcardCount">
+                  <option value="5" selected>5</option>
+                  <option value="8">8</option>
+                  <option value="12">12</option>
+                  <option value="15">15</option>
+                </select>
+                <button class="btn-secondary" id="shuffleCards" type="button">Shuffle</button>
+              </div>
+              <div class="flashcard-stage" id="flashcardStage"></div>
+              <div class="flashcard-navigation">
+                <button class="btn-outline" id="prevCard" type="button">Previous</button>
+                <div id="cardCounter" class="counter">Card 1 of 1</div>
+                <button class="btn-outline" id="nextCard" type="button">Next</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="card" id="exportPanel">
+            <div class="card-header">
+              <div>
+                <p class="eyebrow">Export & Notes</p>
+                <h3>Teacher Toolkit</h3>
+              </div>
+              <div class="status">Tips</div>
+            </div>
+            <div class="note-grid">
+              <div class="note">
+                <h4>Print-ready layout</h4>
+                <p>Use the Print button for a clean worksheet format. Solutions can be hidden before printing.</p>
+              </div>
+              <div class="note">
+                <h4>Classroom strategies</h4>
+                <p>Blend easy and medium questions for warm-ups, then assign hard questions for challenge sets.</p>
+              </div>
+              <div class="note">
+                <h4>API integration</h4>
+                <p>The app is ready for Claude API integration via <code>apiHandler.js</code> with server-side key storage.</p>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="js/topicData.js"></script>
+    <script src="js/questionGenerator.js"></script>
+    <script src="js/flashcardGenerator.js"></script>
+    <script src="js/apiHandler.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
